@@ -1,3 +1,6 @@
+删除了KBEngine.cpp中的543行的MD5加密，因为启动了MD5加密一直校验不过。
+修复了installer.py的BUG
+
 KBEngine
 ========
 
