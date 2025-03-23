@@ -22,14 +22,14 @@ UKBEMain::UKBEMain(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
 	// ...
 
 	ip = TEXT("127.0.0.1");
-	port = @{KBE_LOGIN_PORT};
-	syncPlayerMS = 1000 / @{KBE_UPDATEHZ};
-	useAliasEntityID = @{KBE_USE_ALIAS_ENTITYID};
+	port = 20013;
+	syncPlayerMS = 1000 / 10;
+	useAliasEntityID = true;
 	isOnInitCallPropertysSetMethods = true;
 	forceDisableUDP = false;
 	clientType = EKCLIENT_TYPE::CLIENT_TYPE_WIN;
 	networkEncryptType = NETWORK_ENCRYPT_TYPE::ENCRYPT_TYPE_NONE;
-	serverHeartbeatTick = @{KBE_SERVER_EXTERNAL_TIMEOUT};
+	serverHeartbeatTick = 60;
 	TCP_SEND_BUFFER_MAX = TCP_PACKET_MAX;
 	TCP_RECV_BUFFER_MAX = TCP_PACKET_MAX;
 	UDP_SEND_BUFFER_MAX = 128;
@@ -123,9 +123,9 @@ bool UKBEMain::isUpdateSDK()
 {
 #if WITH_EDITOR
 	return automaticallyUpdateSDK;
-#endif
-
+#else
 	return false;
+#endif
 }
 
 void UKBEMain::downloadSDKFromServer()

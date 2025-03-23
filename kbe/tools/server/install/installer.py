@@ -795,8 +795,9 @@ def modifyKBEConfig():
 	global mysql_kbe_password
 	global mysql_kbe_db_name
 	global kbe_res_path
-	
-	kbengine_defs = kbe_res_path + "server/kbengine_defaults.xml"
+	global KBE_ROOT
+	INFO_MSG("KBE_ROOT: %s" % KBE_ROOT)
+	kbengine_defs = KBE_ROOT + "kbe/res/server/kbengine_defaults.xml"
 	INFO_MSG("Modified: %s" % kbengine_defs)
 	
 	if not os.path.isfile(kbengine_defs):

@@ -283,7 +283,7 @@ public:
 		}
 		else if (GetType() == EKBVarTypes::Vector)
 		{
-			FVector v = (*this);
+			FVector3f v = (*this);
 			return FString::Printf(TEXT("Vector(%f, %f, %f)"), v.X, v.Y, v.Z);
 		}
 		else if (GetType() == EKBVarTypes::Vector4)
@@ -833,8 +833,8 @@ template<> struct TKBVariantTraits<uint64>
 };
 
 
-/** Implements variant type traits for the built-in FVector type. */
-template<> struct TKBVariantTraits<FVector>
+/** Implements variant type traits for the built-in FVector3f type. */
+template<> struct TKBVariantTraits<FVector3f>
 {
 	static int32 GetType() { return EKBVarTypes::Vector; }
 };
